@@ -1,0 +1,24 @@
+{% extends 'donor/base.html' %}
+{% block title %}Create New KPI{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Add a New KPI for the Project</h1>
+    <div class="card shadow-lg">
+        <div class="card-body p-5">
+            <form method="post" action="{% url 'create_kpi' project.id %}">
+                {% csrf_token %}
+                
+                <!-- Custom Form Styling Using Crispy Forms -->
+                {{ form|crispy }}
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Add KPI</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

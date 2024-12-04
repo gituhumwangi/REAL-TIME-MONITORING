@@ -1,0 +1,51 @@
+{% extends 'rtm/base.html' %}
+{% block title %}Add Beneficiary{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center text-primary">Add Beneficiary</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.implementing_agency.label_tag }} {{ form.implementing_agency }}
+        </div>
+        <div class="mb-3">
+            {{ form.project.label_tag }} {{ form.project }}
+        </div>
+        <div class="mb-3">
+            {{ form.username.label_tag }} {{ form.username }}
+        </div>
+        <div class="mb-3">
+            {{ form.identification.label_tag }} {{ form.identification }}
+        </div>
+        <div class="mb-3">
+            {{ form.gender.label_tag }} {{ form.gender }}
+        </div>
+        <div class="mb-3">
+            {{ form.age.label_tag }} {{ form.age }}
+        </div>
+        <div class="mb-3">
+            {{ form.location.label_tag }} {{ form.location }}
+        </div>
+        <div class="mb-3">
+            {{ form.nationality.label_tag }} {{ form.nationality }}
+        </div>
+        <div class="mb-3">
+            {{ form.contact_mobile.label_tag }} {{ form.contact_mobile }}
+        </div>
+        <div class="mb-3">
+            {{ form.contact_email.label_tag }} {{ form.contact_email }}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label_tag }} {{ form.email }}
+        </div>
+        <div class="mb-3">
+            {{ form.first_name.label_tag }} {{ form.first_name }}
+        </div>
+        <div class="mb-3">
+            {{ form.last_name.label_tag }} {{ form.last_name }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Beneficiary</button>
+    </form>
+</div>
+{% endblock %}

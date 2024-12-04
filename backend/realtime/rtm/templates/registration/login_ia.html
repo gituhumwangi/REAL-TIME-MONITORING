@@ -1,0 +1,39 @@
+{% extends 'donor/base.html' %}
+{% block title %}Implementing Agency Login{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Implementing Agency Login</h1>
+    <div class="card shadow-lg">
+        <div class="card-body p-5">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                
+                <!-- Password Field -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success btn-lg">Login</button>
+                </div>
+                
+                <!-- Error Message -->
+                {% if error %}
+                    <p class="text-center text-danger mt-3">{{ error }}</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

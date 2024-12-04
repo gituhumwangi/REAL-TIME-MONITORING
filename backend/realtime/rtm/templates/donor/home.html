@@ -1,0 +1,87 @@
+{% extends 'donor/base.html' %}
+{% block title %} Projects Profile {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Heading -->
+    <h1 class="text-center text-primary my-4">Projects Profile</h1>
+
+    <!-- Table Section -->
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">Project Name</th>
+                    <th scope="col">Donor</th>
+                    <th scope="col">Implementing Agency</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                <tr>
+                    <td>{{ project.name }}</td>
+                    <td>{{ project.donor }}</td>
+                    <td>
+                        {% if project.implementing_agency %}
+                        {{ project.implementing_agency.name }}
+                        {% else %}
+                        <span class="text-danger">Not assigned</span>
+                        {% endif %}
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'appoint_IA' project.id %}" class="btn btn-warning">Assign Agency</a>
+                    </td>
+                    <td>
+                        {% if user == project.donor %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger" name="project-id" value="{{project.id}}">Delete</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-danger">No projects available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Card Section -->
+    <h2 class="text-center text-secondary mb-4">Projects</h2>
+
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-md-4 mb-4">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ project.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ project.donor.username }}</h6>
+                    <p class="card-text"><strong>Funding Amount:</strong> {{ project.funding_amount }}</p>
+                    <p class="card-text"><strong>Duration:</strong> {{ project.funding_duration }} months</p>
+                    <p class="card-text"><strong>Objectives:</strong> {{ project.objectives }}</p>
+                    <p class="card-text"><strong>Location:</strong> {{ project.target_location }}</p>
+                    <p class="card-text"><strong>Implementing Agency:</strong> 
+                        {% if project.implementing_agency %}
+                        {{ project.implementing_agency.name }}
+                        {% else %}
+                        <span class="text-danger">Not assigned</span>
+                        {% endif %}
+                    </p>
+                    <a href="{% url 'appoint_IA' project.id %}" class="btn btn-success">Assign Agency</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Created on: {{ project.created_at }}
+                    Complete on: {{project.completed_date }} 
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col text-center text-secondary">No projects available.</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

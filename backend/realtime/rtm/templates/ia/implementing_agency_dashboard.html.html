@@ -1,0 +1,123 @@
+{% extends 'rtm/base.html' %}
+{% block title %}Implementing Agency Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 bg-light sidebar">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'beneficiaries_list' %}">
+                            Beneficiaries
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kpis_list' %}">
+                            View KPIs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'projects_list' %}">
+                            View Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_beneficiary' %}">
+                            Record Beneficiary
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main content area -->
+        <main class="col-md-9 col-lg-10">
+            <h2 class="text-primary text-center">Implementing Agency Dashboard</h2>
+
+            <!-- Beneficiaries Section -->
+            <h3>Your Beneficiaries</h3>
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-success">
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Project</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for beneficiary in beneficiaries %}
+                        <tr>
+                            <td>{{ beneficiary.first_name }}</td>
+                            <td>{{ beneficiary.last_name }}</td>
+                            <td>{{ beneficiary.project.name }}</td>
+                            <td>
+                                <a href="{% url 'beneficiary_detail' beneficiary.id %}" class="btn btn-primary btn-sm">View</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center text-danger">No beneficiaries available.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- KPIs Section -->
+            <h3>Key Performance Indicators (KPIs)</h3>
+            <ul>
+                {% for kpi in kpis %}
+                <li>
+                    {{ kpi.project.name }}: {{ kpi.indicator_name }} (Baseline: {{ kpi.baseline_value }}, Target: {{ kpi.target_value }}, Actual: {{ kpi.actual_value }})
+                </li>
+                {% empty %}
+                <li class="text-danger">No KPIs available.</li>
+                {% endfor %}
+            </ul>
+
+            <!-- Projects Section -->
+            <h3>Projects</h3>
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-md-4 mb-4">
+                    <div class="card border-success">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{ project.name }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ project.donor.username }}</h6>
+                            <p class="card-text"><strong>Funding Amount:</strong> {{ project.funding_amount }}</p>
+                            <p class="card-text"><strong>Location:</strong> {{ project.target_location }}</p>
+                            <p class="card-text"><strong>Implementing Agency:</strong> 
+                                {% if project.implementing_agency %}
+                                {{ project.implementing_agency.name }}
+                                {% else %}
+                                <span class="text-danger">Not assigned</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Created on: {{ project.created_at }} 
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col text-center text-secondary">No projects available.</div>
+                {% endfor %}
+            </div>
+
+            <!-- Record Beneficiary Form Section -->
+            <h3 class="text-center">Record Beneficiary</h3>
+            <form method="POST" class="mb-4">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+{% endblock %}

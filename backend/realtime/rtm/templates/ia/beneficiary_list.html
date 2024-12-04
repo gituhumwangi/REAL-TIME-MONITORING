@@ -1,0 +1,53 @@
+{% extends 'rtm/base.html' %}
+{% block title %}Beneficiary List{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center text-primary">Beneficiary List</h2>
+
+    {% if beneficiaries %}
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Contact Mobile</th>
+                    <th scope="col">Contact Email</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for beneficiary in beneficiaries %}
+                <tr>
+                    <td>{{ beneficiary.first_name }}</td>
+                    <td>{{ beneficiary.last_name }}</td>
+                    <td>{{ beneficiary.project.name }}</td>
+                    <td>{{ beneficiary.gender }}</td>
+                    <td>{{ beneficiary.age }}</td>
+                    <td>{{ beneficiary.contact_mobile }}</td>
+                    <td>{{ beneficiary.contact_email }}</td>
+                    <td class="text-center">
+                        <a href="{% url 'edit_beneficiary' beneficiary.id %}" class="btn btn-warning">Edit</a>
+                        <form method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger" name="beneficiary-id" value="{{ beneficiary.id }}">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center text-danger">No beneficiaries available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-center text-danger">No beneficiaries found.</p>
+    {% endif %}
+</div>
+{% endblock %}
