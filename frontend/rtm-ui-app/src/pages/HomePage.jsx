@@ -6,6 +6,7 @@ import AboutUs from '../components/AboutUs';
 import EconomicInfo from '../components/EconomicInfo';
 import DonorTrends from '../components/DonorTrends';
 import Footer from '../components/Footer';
+import Hero from '../components/Hero';
 
 
 const HomePage = () => {
@@ -13,7 +14,8 @@ const HomePage = () => {
     <div>
       <Navbar />
       {/* <HeroSection /> */}
-      <Participation />
+      <Hero />
+      {/* <Participation /> */}
       <AboutUs />
       <EconomicInfo />
       <DonorTrends />

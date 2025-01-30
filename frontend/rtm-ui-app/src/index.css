@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  div, p, span, a, button {
+    @apply font-body;
+  }
+}
+
+@layer components{
+  .btn {
+    @apply px-8 py-3 bg-orange-600 text-white text-lg rounded-[48px]
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
