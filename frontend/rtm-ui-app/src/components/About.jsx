@@ -1,5 +1,5 @@
 import React from "react";
-import hero2 from "../assets/kevin-menya-aH1uiH-Ht_w-unsplash-slim.jpg";
+import hero2 from "../assets/about.jpg";
 
 function About() {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
-import donor from "../assets/pexels-julia-m-cameron-6995106-sq.jpg";
-import agency from "../assets/christina-wocintechchat-com-faEfWCdOKIg-unsplash-sq.jpg";
+import donor from "../assets/donor.jpg";
+import agency from "../assets/agency.jpg";
 
 function Account() {
     return (
