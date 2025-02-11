@@ -8,8 +8,8 @@ export default {
     extend: {
       fontFamily: {
         // poppins: ['Poppins', 'sans-serif'],
-        heading : ["Rufina", "serif"],
-        body : ["Average Sans", "serif"],
+        heading : ["DM Sans", "serif"],
+        body : ["Work Sans", "serif"],
       },
     },
   },

@@ -80,7 +80,7 @@ const Participation = () => {
             </p>
             <Link
               to="/signup/ia"
-              className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-500"
+              className="px-4 py-2 bg-orange-600 text-white rounded-lg"
             >
               Learn More
             </Link>

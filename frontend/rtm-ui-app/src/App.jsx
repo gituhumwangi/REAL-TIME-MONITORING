@@ -17,6 +17,7 @@ import IA_profile from './components/donor_dashboard/IA_profile';
 import Personal_profile from './components/donor_dashboard/Personal_profile';
 import Dashboard from './components/donor_dashboard/Dashboard';
 import KPIs from './components/donor_dashboard/KPIs';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup/ia" element={<IASignup />} />
           <Route path="/signup/beneficiary" element={<BeneficiarySignup />} />
           <Route path="/login/donor" element={<DonorLogin />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/iapage" element={<IAPage />} />
           <Route path="/ia_dashboard/onboard" element={<OnboardBeneficiary />} />
           <Route path="/login/ialogin" element={<IALogin />} />

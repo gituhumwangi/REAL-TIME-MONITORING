@@ -14,7 +14,7 @@ const Hero = () => {
         setActiveRole(role); // Set the active role to Donor or Agency
     };
     return (
-        <section className="relative w-full h-screen overflow-hidden">
+        <section className="relative w-full h-screen overflow-hidden rounded-bl-2xl rounded-2xl rounded-br-2xl md:h-[85vh]">
             <Swiper
                 modules={[Autoplay, Navigation, Pagination]}
                 spaceBetween={0}
@@ -22,7 +22,7 @@ const Hero = () => {
                 navigation={true}
                 pagination={{ clickable: true }}
                 autoplay={{
-                    delay: 26000,
+                    delay: 8000,
                     disableOnInteraction: false,
                 }}
                 loop
@@ -37,14 +37,13 @@ const Hero = () => {
                         />
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black/50 text-white px-4">
                             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                                Welcome to Our Service
+                            Empowering communities, changing lives.
                             </h1>
                             <p className="text-lg md:text-xl mb-6">
-                                Discover the best solutions for your needs. Join
-                                us today!
+                            Together, we’re on a mission to uplift our community and create lasting change.
                             </p>
-                            <button className="px-6 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-lg hover:bg-blue-700 transition">
-                                Get Started
+                            <button className="btn text-white text-lg shadow-lg transition">
+                                Learn more
                             </button>
                         </div>
                     </div>
@@ -68,22 +67,14 @@ const Hero = () => {
                                 difference.
                             </p>
                             {/* Buttons for Donor and Implementing Agency */}
-                            <div className="flex justify-center space-x-4">
+                            <div className="flex justify-center flex-col md:flex-row gap-4">
                                 <button
-                                    className={`btn ${
-                                        activeRole === "donor"
-                                            ? "bg-green-700"
-                                            : "hover:bg-green-500"
-                                    }`}
+                                    className='btn'
                                     onClick={() => handleRoleClick("donor")}>
                                     Join As Donor
                                 </button>
                                 <button
-                                    className={`btn ${
-                                        activeRole === "agency"
-                                            ? "bg-orange-700"
-                                            : "hover:bg-orange-500"
-                                    }`}
+                                    className='btn'
                                     onClick={() => handleRoleClick("agency")}>
                                     Join As Implementing Agency
                                 </button>
@@ -102,14 +93,13 @@ const Hero = () => {
                         />
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black/50 text-white px-4">
                             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                                Your Success, Our Priority
+                                We believe in transparency
                             </h1>
                             <p className="text-lg md:text-xl mb-6">
-                                Partner with us to achieve your dreams
-                                effortlessly.
+                            You deserve to see how your contributions make an impact.
                             </p>
-                            <button className="px-6 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-lg hover:bg-blue-700 transition">
-                                Contact Us
+                            <button className="btn text-white text-lg shadow-lg transition">
+                                Learn More
                             </button>
                         </div>
                     </div>
