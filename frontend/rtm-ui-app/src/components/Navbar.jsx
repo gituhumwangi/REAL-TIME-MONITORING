@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hidden, setHidden] = useState(false);
+  const navigate = useNavigate();
+  const [textColor, setTextColor] = useState("text-white");
 
   const handleNav = () => {
     setNav(!nav);
@@ -31,25 +34,50 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const bgColor = window.getComputedStyle(entry.target).backgroundColor;
+            setTextColor(bgColor === "rgb(0, 0, 0)" ? "text-black" : "text-white"); 
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-green-600 text-white h-16 flex items-center justify-between px-4 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full bg-grey-900 bg-opacity-300 text-white h-16 flex items-center justify-between px-4 transition-transform duration-300 ${
         hidden ? '-translate-y-full' : 'translate-y-0'
       }`}
       style={{ zIndex: 100 }} // Fixed position and high z-index
     >
-      <Link to="/" className="text-3xl font-bold text-white ml-4">
+      {/* <Link to="/" className="text-3xl font-bold text-white ml-4">
         Logo
-      </Link>
+      </Link> */}
+
+      <button onClick={() => navigate("/")} className='text-3xl font-bold text-white ml-4'>VivaMetrics</button>
 
     
       <ul className="hidden md:flex space-x-8 items-center">
         {/* About Us Link with hover effect */}
         <li className="relative group">
-          <Link to="/aboutus" className="inline-block pb-1 hover:text-gray-300">
+          {/* <Link to="/aboutus" className="inline-block pb-1 hover:text-gray-300">
             About Us
             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
+          </Link> */}
+
+          <button onClick={() => navigate("/aboutus")} className='inline-block pb-1 hover:text-gray-300'>About Us</button>
         </li>
 
         <li className="relative group">
@@ -60,7 +88,7 @@ const Navbar = () => {
         </li>
 
         <li className="relative group">
-          <Link to="/economicinfo" className="inline-block pb-1 hover:text-gray-300">
+          <Link to="/economicinfo" className="inline-block pb-1 hover:text-gray-300 ">
             Economic Info
             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>

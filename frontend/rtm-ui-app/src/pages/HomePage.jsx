@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Participation from '../components/Participation';
-// import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/HeroSection';
 import AboutUs from '../components/AboutUs';
 import EconomicInfo from '../components/EconomicInfo';
 import DonorTrends from '../components/DonorTrends';
@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      {/* <HeroSection /> */}
+      <HeroSection />
       <Participation />
       <AboutUs />
       <EconomicInfo />

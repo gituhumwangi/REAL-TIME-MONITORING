@@ -17,6 +17,11 @@ import IA_profile from './components/donor_dashboard/IA_profile';
 import Personal_profile from './components/donor_dashboard/Personal_profile';
 import Dashboard from './components/donor_dashboard/Dashboard';
 import KPIs from './components/donor_dashboard/KPIs';
+// import AboutUs from './components/AboutUs';
+// import EconomicInfo from './components/EconomicInfo';
+// import DonorTrends from './components/DonorTrends';
+// import HeroSection from './components/HeroSection';
+
 
 function App() {
   return (
@@ -38,6 +43,10 @@ function App() {
           <Route path="ia_profile" element={<IA_profile />} />
           <Route path='personal_profile' element={<Personal_profile />}></Route>
           <Route path='kpis' element={KPIs}></Route>
+          {/* <Route path='aboutus' element={<AboutUs />}></Route> */}
+          {/* <Route path='economicinfo' element={<EconomicInfo />}></Route> */}
+          {/* <Route path='donortrends' element={<DonorTrends />}></Route> */}
+          {/* <Route path='/' element={<HeroSection></HeroSection>}></Route> */}
         </Routes>
       </AuthProvider>
     </Router>
