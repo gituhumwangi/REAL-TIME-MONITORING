@@ -82,7 +82,7 @@ const Navbar = () => {
 
         <li className="relative group">
           <Link to="/donortrends" className="inline-block pb-1 hover:text-gray-300">
-            DonorTrends
+            Donor Trends
             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
         </li>
@@ -95,17 +95,17 @@ const Navbar = () => {
         </li>
 
 <li className="relative group">
-  <button className="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-orange-400 transition duration-300">
+  <button className="bg-white text-green-600 px-4 py-2 rounded-lg transition duration-300">
     Register
   </button>
   <div className="absolute hidden group-hover:block bg-white text-black mt-2 rounded shadow-lg w-48">
-    <Link to="/signup/donor" className="block px-4 py-2 hover:bg-orange-400">
+    <Link to="/signup/donor" className="block px-4 py-2">
       Donor
     </Link>
-    <Link to="/signup/ia" className="block px-4 py-2 hover:bg-orange-400">
+    <Link to="/signup/ia" className="block px-4 py-2">
       IA
     </Link>
-    <Link to="/signup/beneficiary" className="block px-4 py-2 hover:bg-orange-400">
+    <Link to="/signup/beneficiary" className="block px-4 py-2">
       Beneficiary
     </Link>
   </div>
