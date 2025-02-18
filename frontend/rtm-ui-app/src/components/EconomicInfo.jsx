@@ -13,9 +13,9 @@ const EconomicInfo = () => {
       
       {/* Global Economic Trends */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-2">Global Economic Trends</h3>
+        <h3 className="text-xl font-semibold mb-2">OECD: Global Outlook on Financing for Sustainable Development 2025</h3>
         <p className="text-gray-700">
-          Stay updated on global economic indicators such as GDP growth, inflation rates, and unemployment figures that shape the philanthropic landscape.
+        The latest Global Outlook on Financing for Sustainable Development calls for a major overhaul of the global system to mobilise resources to build a sustainable future for all.
         </p>
         {/* Placeholder for chart or data visualization */}
         <div className="bg-gray-200 p-4 rounded-lg mt-4">

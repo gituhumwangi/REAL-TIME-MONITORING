@@ -8,11 +8,11 @@ function Navbar2() {
 
     return (
         <section>
-            <nav className="font-inter mx-auto h-auto w-full max-w-screen-2xl lg:relative lg:top-0 shadow-lg">
+            <nav className="font-inter mx-auto h-auto w-full max-w-screen-2xl lg:relative lg:top-0 shadow-md">
                 <div className="flex flex-col px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-10 lg:py-4 xl:px-20">
-                    <a href="#">
+                    <Link to="/">
                     <img src={icon} className="h-16 w-auto" alt="Viva metrics icon" />
-                    </a>
+                    </Link>
                     <div
                         className={`mt-14 flex flex-col space-y-8 lg:mt-0 lg:flex lg:flex-row lg:space-x-1 lg:space-y-0 ${
                             isOpen ? "" : "hidden"

@@ -14,7 +14,7 @@ function Account() {
                 <h2 className="text-3xl font-bold md:text-5xl w-full">
                     Join
                 </h2>
-                <p className="mx-auto mb-0 mt-4 max-w-7xl text-base text-gray-500 md:mb-2 md:text-lg lg:mb-2">
+                <p className="mx-auto mb-0 mt-4 max-w-7xl text-base text-gray-500 md:mb-2 lg:mb-2">
                     Become a part of our mission to create lasting change in the
                     lives of those in need. Together, we can amplify our efforts and ensure that we’re
                     making a meaningful impact. Explore the different ways you
@@ -30,25 +30,12 @@ function Account() {
                             alt=""
                             className="inline-block h-full w-full rounded-2xl object-cover"
                         />
-                        <div className="flex flex-col gap-4 rounded-2xl p-10 sm:p-20">
+                        <div className="flex flex-col justify-center gap-8 rounded-2xl p-10 sm:p-20">
                             <h2 className="text-3xl font-bold md:text-5xl">
                                 As a donor
                             </h2>
                             <p className="text-base text-gray-500 sm:text-base">
-                                As a donor, your generous support will directly fund essential
-                                programs such as food distribution, healthcare
-                                services, educational initiatives, and emergency
-                                response efforts in crisis-affected regions.{" "}
-                                <br />
-                                <br />
-                                Expect to see your impact firsthand through
-                                regular updates and stories showcasing the lives
-                                you touch and the communities you help uplift.<br/><br/>
-                                Join us in this mission of compassion, where
-                                every donation, no matter the size, creates
-                                ripples of change and empowers individuals to
-                                rebuild their lives with dignity and resilience.
-                                Together, we can make a lasting difference.
+                            Are you a philanthropist, donor or aid provider? Join the platform to get access to real time project tracking tools, verified project implementers, and seamless contact with target beneficiaries.
                             </p>
                             <button className="btn mt-3">
                                 Become a donor
@@ -56,25 +43,12 @@ function Account() {
                         </div>
                     </div>
                     <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-                        <div className="flex flex-col gap-4 rounded-2xl p-10 sm:p-20">
+                        <div className="flex flex-col gap-8 justify-center rounded-2xl p-10 sm:p-20">
                             <h2 className="text-3xl font-bold md:text-5xl">
                                 As an implementing agency
                             </h2>
                             <p className="text-base text-gray-500 sm:text-base">
-                                Aliquet risus feugiat in ante metus. Arcu dui
-                                vivamus arcu felis bibendum ut. Vestibulum lorem
-                                sed risus ultricies tristique nulla. Vitae et
-                                leo duis ut diam quam. Bibendum arcu vitae
-                                elementum curabitur vitae nunc. Dictumst
-                                vestibulum rhoncus est pellentesque. Lectus
-                                proin nibh nisl condimentum id. Ullamcorper
-                                dignissim cras tincidunt lobortis feugiat
-                                vivamus.
-                                <br />
-                                <br />
-                                Massa id neque aliquam vestibulum morbi blandit.
-                                Nulla pellentesque dignissim enim sit amet
-                                venenatis.
+                            Do you implement funded projects or do you intend to start implementing projects? Join the platform to get noticed by donors and get access to available funding opportunities globally.
                             </p>
                             <button className="btn mt-3">
                                 Join

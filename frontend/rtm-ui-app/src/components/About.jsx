@@ -1,5 +1,6 @@
 import React from "react";
 import hero2 from "../assets/about.jpg";
+import { Link } from "react-router-dom";
 
 function About() {
     return (
@@ -21,6 +22,14 @@ function About() {
                                 evaluation designs, real time data collection
                                 and seamless linkage between donors and funding
                                 beneficiaries.
+                                <br/>
+                                <span className="block pt-6">
+                                    <Link to="/about#kwk">
+                                        <button className="btn">
+                                            Read more
+                                        </button>
+                                    </Link>
+                                </span>
                             </p>
                         </div>
                         {/* Image */}
